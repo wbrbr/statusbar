@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+(echo "Music"
+while true
+do
+    echo -e "          ^ca(1,mpc prev)^i(/home/wilhem/dzen-icons/prev.xbm)^ca() ^ca(1,mpc stop)^i(/home/wilhem/dzen-icons/stop.xbm) ^ca()^ca(1,mpc toggle)^i(/home/wilhem/dzen-icons/pause.xbm)^i(/home/wilhem/dzen-icons/play.xbm)^ca() ^ca(1,mpc next)^i(/home/wilhem/dzen-icons/next.xbm)^ca()\n^ca(1,mpc repeat)$(mpc status | grep -o -E 'repeat: (off|on)')^ca() ^ca(1, mpc random)$(mpc status | grep  -o -E 'random: (off|on)')^ca()"
+done)| dzen2 -p 4 -x "620" -y "20" -w "200" -l "2" -sa 'l' -ta 'c' -e 'onstart=uncollapse;button1=exit;button3=exit' -fn  -*-ohsnapu-medium-r-normal-*-11-*-*-*-*-*-*-* 

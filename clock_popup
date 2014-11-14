@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+urxvt -e tty-clock -c -C 1 &

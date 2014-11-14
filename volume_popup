@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+(echo "Volume" 
+echo -e "^ca(1,amixer -c 0 set Master 5%-) - ^ca() ^ca(1,amixer -c 0 set Master toggle) \u2260 ^ca() ^ca(1,amixer -c 0 set Master 5%+) + ^ca()"
+) | dzen2 -p 4 -x "720" -y "20" -w "100" -l "1" -sa 'c' -ta 'c' -e 'onstart=uncollapse;button1=exit;button3=exit' -fn  -*-ohsnapu-medium-r-normal-*-11-*-*-*-*-*-*-* 
