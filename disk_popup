@@ -3,4 +3,4 @@
 (echo "Disk"
 echo "/ : $(df -h / | sed '2q;d' | column -t -o " " | cut -d " " -f 3)/$(df -h / | sed '2q;d' | column -t -o " " | cut -d " " -f 2)"
 echo "/home: $(df -h /home | sed '2q;d' | column -t -o " " | cut -d " " -f 3)/$(df -h /home | sed '2q;d' | column -t -o " " | cut -d " " -f 2)"
-) | dzen2 -p 4 -x "620" -y "20" -w "200" -l "2" -sa 'c' -ta 'c' -e 'onstart=uncollapse;button1=exit;button3=exit' -fn  -*-ohsnapu-medium-r-normal-*-11-*-*-*-*-*-*-* 
+) | dzen2 -p 4 -x "$(./getmousepos)" -y "20" -w "200" -l "2" -sa 'c' -ta 'c' -e 'onstart=uncollapse;button1=exit;button3=exit' -fn  -*-ohsnapu-medium-r-normal-*-11-*-*-*-*-*-*-* 

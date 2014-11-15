@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+pos="$(xdotool getmouselocation | grep -oE 'x:[[:digit:]]{2,3}' | sed 's/x://')"
+echo "$(($pos-100))"
