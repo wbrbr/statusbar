@@ -3,10 +3,11 @@
 Vol() {
     mute=$(amixer get Master | grep Mono: | cut -d " " -f 8)
     if [[ $mute == "[off]" ]]; then
-        echo -n "^ca(1,./volume_popup)^fg(orange)^i("$HOME/dzen-icons/spkr_02.xbm") : Muet  ^fg()^ca()| "
+        echo -n "^ca(1,./volume_popup)^fg(orange)^i("$HOME/dzen-icons/spkr_02.xbm") : Muet ^fg()^ca()| "
     else 
-        volume=$(amixer get Master | grep Mono: | cut -d " " -f 6)
-        echo -n "^ca(1,./volume_popup)^fg(orange)^i("$HOME/dzen-icons/spkr_01.xbm") : $volume ^fg()^ca()| "
+        volume=$(amixer get Master | grep Mono: | cut -d " " -f 6 | sed -s 's/\[\(.*\)%\]/\1/')
+        volume_bar=$(echo $volume | gdbar -h 2 -w 50 -fg orange)
+        echo -n "^ca(1,./volume_popup)^fg(orange)^i("$HOME/dzen-icons/spkr_01.xbm") : $volume_bar ^fg()^ca()| "
     fi
     return
 }
@@ -26,8 +27,9 @@ Battery() {
 }
 
 Disk() {
-    space=$(df -h /home|sed '1d'|awk '{print $4}')
-    echo -n "^ca(1, ./disk_popup)^fg(green)^i($HOME/dzen-icons/diskette.xbm) : $space ^fg()^ca()| "
+    space=$(df -h /home|sed '1d'|awk '{print $5}' | sed 's/\(.*\)%/\1/')
+    space_bar=$(echo $space | gdbar -h 2 -w 50 -fg green)
+    echo -n "^ca(1, ./disk_popup)^fg(green)^i($HOME/dzen-icons/diskette.xbm) : $space_bar ^fg()^ca()| "
     return
 }
 
