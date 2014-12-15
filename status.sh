@@ -52,7 +52,7 @@ Music() {
 
 Update() {
     updates=$(wc -l < ~/updates)
-    echo -n "^ca(1,. $realpath/update_popup)^fg(#4BB5C1)^i(icons/arch.xbm) : $updates^fg()^ca() | "
+    echo -n "^ca(1,. $realpath/update_popup)^fg(#4BB5C1)^i($realpath/icons/arch.xbm) : $updates^fg()^ca() | "
 }
 
 Mail() {
@@ -61,7 +61,7 @@ Mail() {
         touch ~/newmail
     fi
     if [[ $mailnbr != "0" ]]; then
-        echo -n " | ^fg(#FF358B)^i(icons/mail.xbm) : $mailnbr^fg()"
+        echo -n " | ^fg(#FF358B)^i($realpath/icons/mail.xbm) : $mailnbr^fg()"
     fi
 }
 
