@@ -1,7 +1,9 @@
 #!/usr/bin/sh
 
+realpath=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)
+
 (echo "Updates"
 while read p; 
 do 
     echo "$p"; 
-done < ~/updates) | dzen2 -p 4 -x "$(./getmousepos)" -y "20" -w "200" -l "$(wc -l ~/updates)" -sa 'c' -ta 'c' -e 'onstart=uncollapse;button1=exit;button3=exit' -fn  -*-ohsnapu-medium-r-normal-*-11-*-*-*-*-*-*-* 
+done < ~/updates) | dzen2 -p 4 -x "$(. $realpath/getmousepos)" -y "20" -w "200" -l "$(wc -l ~/updates)" -sa 'c' -ta 'c' -e 'onstart=uncollapse;button1=exit;button3=exit' -fn  -*-ohsnapu-medium-r-normal-*-11-*-*-*-*-*-*-* 
