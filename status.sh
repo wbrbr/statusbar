@@ -65,6 +65,10 @@ Mail() {
     fi
 }
 
+Reddit() {
+    echo -n "^ca(1,python $realpath/reddit_popup.py)^fg(orange)Reddit^fg()^ca() | "
+}
+
 Print () {
     Vol
     Disk
@@ -72,6 +76,7 @@ Print () {
     #Battery
     Music
     Update
+    Reddit
     Time
     Mail
     echo
